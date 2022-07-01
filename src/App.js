@@ -6,9 +6,11 @@ import Header from "./components/Header";
 
 function App() {
   return (
-    <div>
-      <div className="container w-25 bg-warning my-4">
-        <Header />
+    <div className="main">
+      <div className="container d-flex justify-content-center ">
+        <div className="App  mt-2">
+          <Header />
+        </div>
       </div>
     </div>
   );

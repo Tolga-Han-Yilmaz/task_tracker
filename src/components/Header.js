@@ -42,10 +42,10 @@ const Header = () => {
   }, [todos]);
   return (
     <div>
-      <h4>Task Tracker</h4>
+      <h2>Task Tracker</h2>
       <div className="div-form ">
         <button
-          className={isShow ? "btn btn-primary" : "btn btn-secondary"}
+          className={isShow ? "btn btn-primary" : "btn btn-warning"}
           onClick={handleClickShow}
         >
           {isShow ? `Show ` : `Close `}
@@ -53,7 +53,9 @@ const Header = () => {
         </button>
         {isShow && (
           <div className="container">
-            <label htmlFor="task">Task</label>
+            <label htmlFor="task">
+              <h5>Task</h5>{" "}
+            </label>
             <br />
             <input
               type="text"
@@ -65,8 +67,10 @@ const Header = () => {
               onChange={(e) => handleInput(e)}
             />
             <br />
-            <br />
-            <label htmlFor="day">Day & Time</label>
+            <label htmlFor="day">
+              {" "}
+              <h5>Day & Time</h5>{" "}
+            </label>
             <br />
             <input
               type="text"
@@ -78,7 +82,7 @@ const Header = () => {
               onChange={(e) => handleInput(e)}
             />
             <br /> <br />
-            <button className="btn btn-info w-100" onClick={handleClick}>
+            <button className="btn btn-danger w-100" onClick={handleClick}>
               Save Task
             </button>
           </div>
