@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Todo from "./Todo";
 import tasks from "./data";
 
@@ -24,11 +24,22 @@ const Header = () => {
     if (form.task === "" || form.day === "") {
       return false;
     } else {
-      setTodos([...todos, form]);
-      setForm(form);
-      console.log(todos);
+      let id = Math.floor(Math.random() * 10000);
+      setTodos([
+        ...todos,
+        { id: id, task: form.task, day: form.day, idDone: false },
+      ]);
+      // setForm(form);
     }
+    setForm({
+      task: "",
+      day: "",
+    });
   };
+
+  useEffect(() => {
+    console.log(todos);
+  }, [todos]);
   return (
     <div>
       <h4>Task Tracker</h4>
@@ -50,6 +61,7 @@ const Header = () => {
               id="task"
               className="w-100"
               placeholder="Add Task"
+              value={form.task}
               onChange={(e) => handleInput(e)}
             />
             <br />
@@ -60,6 +72,7 @@ const Header = () => {
               type="text"
               name="day"
               id="day"
+              value={form.day}
               className="w-100"
               placeholder="Add Day & Time"
               onChange={(e) => handleInput(e)}
@@ -73,7 +86,7 @@ const Header = () => {
       </div>
       <br />
 
-      <Todo todos={todos} />
+      <Todo todos={todos} setTodos={setTodos} />
     </div>
   );
 };
