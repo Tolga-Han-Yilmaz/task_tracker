@@ -29,7 +29,6 @@ const Header = () => {
         ...todos,
         { id: id, task: form.task, day: form.day, idDone: false },
       ]);
-      // setForm(form);
     }
     setForm({
       task: "",

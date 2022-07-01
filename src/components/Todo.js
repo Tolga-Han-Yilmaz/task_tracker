@@ -37,7 +37,9 @@ const Todo = ({ todos, setTodos, deneme }) => {
             <div
               onClick={() => handleDone(todo.id)}
               className={
-                todo.idDone && "text-decoration-line-through text-success"
+                todo.idDone
+                  ? "text-decoration-line-through text-success"
+                  : "text-dark"
               }
             >
               <h6 className="fw-bold text-capitalize">{todo.task}</h6>
